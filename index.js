@@ -37,7 +37,7 @@ async function writeJSON(){
 
 app.get('/populate',function(req,res){
 
-  var caradisiac = jsonfile.readFileSync("./models.json");
+  var caradisiac = fs.readFileSync("./models.json");
 
   var client = new elasticsearch.Client({
       host: 'localhost:9200',
@@ -62,12 +62,12 @@ app.get('/populate',function(req,res){
           console.log(response);
       }
   });
-  res.send("Data well saved in elasticsearch");
+  res.send("Ok saved in elastic");
 })
 
 
 app.get('/suv', function(req,res){
-  var caradisiac = jsonfile.readFileSync("./models.json");
+  var caradisiac = fs.readFileSync("./models.json");
 
   var client = new elasticsearch.Client({
       host: 'localhost:9200',
